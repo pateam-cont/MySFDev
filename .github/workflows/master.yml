@@ -38,5 +38,5 @@ jobs:
       - name: Convert the VScode Source to metadata API format
         run: 'sfdx force:source:convert --rootdir=force-app --outputdir=convert'
       - name: Deploy the code to CI
-        run: 'sfdx force:mdapi:deploy --deploydir=convert --testlevel=RunLocalTests --checkonly -u hub-org'
+        run: 'sfdx force:mdapi:deploy --deploydir=convert --testlevel=RunLocalTests -u hub-org'
           
