@@ -34,7 +34,7 @@ jobs:
       - name: Decrypt KEY
         run: openssl enc -nosalt -aes-256-cbc -d -in buildfiles/server.key.enc -out server.key -base64 -K ${{secrets.DECRYPT_KEY_CI}} -iv ${{secrets.DECRYPT_KEY_IV}}
       - name: Authenticate CI
-        run: 'sfdx force:auth:jwt:grant --instanceurl https://login.salesforce.com --clentid ${{secrets.CONSUMER_KEY}} --jwtkeyfile server.key --username ${{secrets.USERNAME}} --setdefaultdevusername -a devhub'
+        run: 'sfdx force:auth:jwt:grant --instanceurl https://login.salesforce.com --clientid ${{secrets.CONSUMER_KEY}} --jwtkeyfile server.key --username ${{secrets.USERNAME}} --setdefaultdevusername -a devhub'
       - name: Convert the VScode Source to metadata API format
         run: 'sfdx force:source:convert --rootdir=force-app --outputdir=convert'
       - name: Deploy the code to CI
