@@ -38,5 +38,5 @@ jobs:
       - name: Authenticate CI
         run: 'sfdx force:auth:jwt:grant --instanceurl https://login.salesforce.com --clentid ${{secrets.CONSUMER_KEY}} --jwtkeyfile server.key --username ${{secrets.USERNAME}} --setdefaultdevusername -a devhub'
       - name: Deploy the code to CI
-        run: sfdx force:mdapi:deploy --deploydir=convert --testlevel=RunLocalTests --checkonly -u hub-org'
+        run: 'sfdx force:mdapi:deploy --deploydir=convert --testlevel=RunLocalTests --checkonly -u hub-org'
           
