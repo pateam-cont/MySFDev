@@ -34,7 +34,7 @@ jobs:
       - name: Convert the VScode Source to metadata API format
         run: 'sfdx force:source:convert -d fsc'
       - name: Authenticate CI
-        run: 'sfdx force:auth:jwt:grant --instanceurl https://login.salesforce.com --clentid ${{secrets.CLIENT_ID_TRAINING}} --jwtkeyfile server.key --username cicd.user@storebrand.no.stb.training --setdefaultdevusername -a devhub'
+        run: 'sfdx force:auth:jwt:grant --instanceurl https://login.salesforce.com --clentid ${{secrets.CONSUMER_KEY}} --jwtkeyfile server.key --username cicd.user@storebrand.no.stb.training --setdefaultdevusername -a devhub'
       - name: Deploy the code to CI
         run: 'sfdx force:mdapi:deploy --wait 45 --deploydir fsc --targetusername cicd.user@storebrand.no.stb.training --testlevel NotestRun'
           
