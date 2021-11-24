@@ -30,7 +30,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Decrypt KEY
-        run: openssl enc -aes-256-cbc -d -in AssetEncCI/server.key.enc -out server.key -k ${{secrets.DECRYPT_KEY_CI}}
+        run: openssl enc -aes-256-cbc -d -in buildfiles/server.key.enc -out server.key -k ${{secrets.DECRYPT_KEY_CI}}
       - name: Convert the VScode Source to metadata API format
         run: 'sfdx force:source:convert -d fsc'
       - name: Authenticate CI
